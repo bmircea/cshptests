@@ -1,3 +1,5 @@
+using System.Data;
+
 namespace Compute
 {
     
@@ -6,7 +8,7 @@ namespace Compute
         [SetUp]
         public void Setup()
         {
-            Point a = new Point(10, 10);
+            Point a = new Point(10, 10, 10);
         }
 
         [Test]

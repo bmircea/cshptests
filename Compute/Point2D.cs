@@ -1,14 +1,18 @@
 ﻿namespace Compute
-    { 
-    public class Point { 
-        private int x, y;
-        public Point(int x, int y)
+{
+    public class Point
+    {
+        private float x, y, z;
+        public Point(float x, float y, float z)
         {
             this.x = x;
             this.y = y;
+            this.z = z;
         }
 
-        public int getX() { return x; }
-        public int getY() { return y; }
+        public float getX() { return x; }
+        public float getY() { return y; }
+        public float getZ() { return z; }
     }
+
 }
