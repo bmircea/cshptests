@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace cshptests
+namespace Compute
 {
-    class Cube
+    public class Cube
     {
         private List<Point> points;
 
-        Cube(List<Point> points)
+        public Cube(List<Point> points)
         {
             this.points = points;
         }

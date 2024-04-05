@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cshptests", "cshptests.csproj", "{ED08083A-8B60-4F92-A911-CE2A9E51DB6F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compute", "..\Compute\Compute.csproj", "{80ACE76A-F4B5-466D-B036-B7DBF428296D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoTests", "..\GeoTests\GeoTests.csproj", "{7F2DE1F7-0825-45BF-96CB-8768153A04BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{ED08083A-8B60-4F92-A911-CE2A9E51DB6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ED08083A-8B60-4F92-A911-CE2A9E51DB6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ED08083A-8B60-4F92-A911-CE2A9E51DB6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ED08083A-8B60-4F92-A911-CE2A9E51DB6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80ACE76A-F4B5-466D-B036-B7DBF428296D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80ACE76A-F4B5-466D-B036-B7DBF428296D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80ACE76A-F4B5-466D-B036-B7DBF428296D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80ACE76A-F4B5-466D-B036-B7DBF428296D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F2DE1F7-0825-45BF-96CB-8768153A04BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F2DE1F7-0825-45BF-96CB-8768153A04BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F2DE1F7-0825-45BF-96CB-8768153A04BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F2DE1F7-0825-45BF-96CB-8768153A04BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
