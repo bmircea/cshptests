@@ -1,6 +1,23 @@
 # C# Testing with NUnit
 
 
+
+Intro, motivatie
+----------------
+
+
+
+
+Utilitare folosite
+------------------
+NUnit
+Stryker
+
+
+Videoclip Youtube
+-----------------
+
+
 Testare functionala - partitionare
 ----------------------------------
 
@@ -83,10 +100,10 @@ Analiza valorilor de frontiera
 
 2. Vom testa o functie care calculeaza diferite tipuri de distante dintre doua puncte. (ComputeDistance)
 
-Testare functionala - partitionare
-----------------------------------
 
-	
+
+Testare functionala - partitionare
+----------------------------------	
 
 	Intrari:
 		a. Punctul de plecare (A), reprezentat prin coordonate 3D
@@ -134,3 +151,19 @@ Analiza valorilor de frontiera
 	g4: ((0, 0.001, 0), (0.0001, 0, 0), euclidean)
 	g5: ((0, 0.0001, 0), (0.00001, 0, 0), manhattan)
 	g6: ((0, 0.00001, 0), (0.000001, 0, 0), chebyshev)
+
+
+
+Acoperirea la nivel de instructiune, decizie, conditie
+------------------------------------------------------
+
+
+
+
+Mutanti
+-------
+
+
+
+Raport AI
+---------
