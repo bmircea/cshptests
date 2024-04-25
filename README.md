@@ -4,13 +4,13 @@
 
 Intro, motivatie
 ----------------
-
-
+Motivatia pentru a alege acest proiect este datorata experientei de lucrul a amandurora. Amandoi lucram cu obiecte geometrice zilnic, intr-un mediu dominat de testarea continua a codului dezvoltat. Ca limbaj am ales C#, intrucat ne-am mai intalnit in trecut cu limbajul, si, de asemenea punctul nostru forte este dezvoltarea de cod in C si C++, acestea doua reprezentand inspiratia care sta la baza crearii limbajului C#.
 
 
 Utilitare folosite
 ------------------
 NUnit
+
 Stryker
 
 
