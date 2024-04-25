@@ -157,6 +157,7 @@ Analiza valorilor de frontiera
 Acoperirea la nivel de instructiune, decizie, conditie
 ------------------------------------------------------
 
+![CodeFlow](code2flow_GrafDependente.png)
 
 
 
