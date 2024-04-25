@@ -29,7 +29,7 @@ namespace Compute
         }
 
         [Test]
-        public void DotProduct()
+        public void DotProductTest()
         {
             Point a = new Point(3, 8, 12);
             Point b = new Point(5, 1, 2);
@@ -104,6 +104,15 @@ namespace Compute
             return c.IsPointInsideBoundingBox(p);
         }
 
+        [Test]
+        public void UtilitiesTestDotProductTest()
+        {
+            Point point1 = new Point(2, 3, 5);
+            Point point2 = new Point(5, 3, 2);
+            double expectedResult = 2*5 + 3*3 + 5*2;
+
+            Assert.That(Utilities.DotProduct(point1, point2), Is.EqualTo(expectedResult));
+        }
 
         // =============================================
         // Equivalence partitioning
