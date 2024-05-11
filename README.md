@@ -156,8 +156,9 @@ Analiza valorilor de frontiera
 
 Acoperirea la nivel de instructiune, decizie, conditie
 ------------------------------------------------------
+Am facut CFG-ul asociat unei functii care determina tipul figurii geometrice construite pe baza punctelor existente. Numerotarea liniilor de cod poate fi vazuta in fisierul Compute\FigureDecision.cs
 
-![CodeFlow](GrafDependente.jpg)
+![CodeFlow](CFG.jpg)
 
 
 
@@ -168,3 +169,6 @@ Mutanti
 
 Raport AI
 ---------
+Am folosit modelul de inteligenta artificiala Microsoft Copilot. Query-urile date si raspunsurile primite pot fi vazute in folderul intitulat Copilot, asociat proiectului.
+
+Dupa cum se poate observa si din videoclipul de pe YouTube, testele generate de AI au o eficienta crescuta/scazuta, comparativ cu testele scrise de catre noi, rata de acoperire fiind de ... (TODO)
