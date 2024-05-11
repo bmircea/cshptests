@@ -158,7 +158,7 @@ Acoperirea la nivel de instructiune, decizie, conditie
 ------------------------------------------------------
 Am facut CFG-ul asociat unei functii care determina tipul figurii geometrice construite pe baza punctelor existente. Numerotarea liniilor de cod poate fi vazuta in fisierul Compute\FigureDecision.cs
 
-![CodeFlow](CFG.jpg)
+![CodeFlow](CFG.png)
 
 
 
