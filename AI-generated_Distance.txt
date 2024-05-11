@@ -1,0 +1,47 @@
+using NUnit.Framework;
+using Compute;
+
+namespace Compute.Tests
+{
+    [TestFixture]
+    public class CubeTests
+    {
+        private Cube cube;
+
+        [SetUp]
+        public void Setup()
+        {
+            cube = new Cube(new Point(0, 0, 0), 2);
+        }
+
+        // Test for equivalence class 1: Points that are calculated using the Euclidean distance
+        [Test]
+        public void ComputeDistance_Euclidean_ReturnsCorrectDistance()
+        {
+            var pointA = new Point(0, 0, 0);
+            var pointB = new Point(1, 1, 1);
+            var expectedDistance = Math.Sqrt(3);
+            Assert.AreEqual(expectedDistance, cube.ComputeDistance(pointA, pointB, DistType.euclidean));
+        }
+
+        // Test for equivalence class 2: Points that are calculated using the Manhattan distance
+        [Test]
+        public void ComputeDistance_Manhattan_ReturnsCorrectDistance()
+        {
+            var pointA = new Point(0, 0, 0);
+            var pointB = new Point(1, 1, 1);
+            var expectedDistance = 3;
+            Assert.AreEqual(expectedDistance, cube.ComputeDistance(pointA, pointB, DistType.manhattan));
+        }
+
+        // Test for equivalence class 3: Points that are calculated using the Chebyshev distance
+        [Test]
+        public void ComputeDistance_Chebyshev_ReturnsCorrectDistance()
+        {
+            var pointA = new Point(0, 0, 0);
+            var pointB = new Point(1, 1, 1);
+            var expectedDistance = 1;
+            Assert.AreEqual(expectedDistance, cube.ComputeDistance(pointA, pointB, DistType.chebysev));
+        }
+    }
+}

@@ -1,0 +1,41 @@
+using NUnit.Framework;
+using Compute;
+
+namespace Compute.Tests
+{
+    [TestFixture]
+    public class CubeTests
+    {
+        private Cube cube;
+
+        [SetUp]
+        public void Setup()
+        {
+            cube = new Cube(new Point(0, 0, 0), 2);
+        }
+
+        // Test for equivalence class 1: Points that are inside the bounding box
+        [Test]
+        public void IsPointInsideBoundingBox_Inside_ReturnsTrue()
+        {
+            var point = new Point(0.5, 0.5, 0.5);
+            Assert.IsTrue(cube.IsPointInsideBoundingBox(point));
+        }
+
+        // Test for equivalence class 2: Points that are outside the bounding box
+        [Test]
+        public void IsPointInsideBoundingBox_Outside_ReturnsFalse()
+        {
+            var point = new Point(2.5, 2.5, 2.5);
+            Assert.IsFalse(cube.IsPointInsideBoundingBox(point));
+        }
+
+        // Test for equivalence class 3: Points that are exactly on the boundary of the bounding box
+        [Test]
+        public void IsPointInsideBoundingBox_OnBoundary_ReturnsTrue()
+        {
+            var point = new Point(1, 1, 1);
+            Assert.IsTrue(cube.IsPointInsideBoundingBox(point));
+        }
+    }
+}

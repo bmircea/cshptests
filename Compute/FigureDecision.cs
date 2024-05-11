@@ -13,83 +13,83 @@ namespace Compute
             this.vertices = vertices;
         }
 
-        public void ComputeFigureDecision()
+        public void ComputeFigureDecision() // line 1
         {
             // The figures considered are only regular polygons
 
-            int noOfVertices = vertices.Count;
+            int noOfVertices = vertices.Count; // line 2
 
-            switch(noOfVertices)
+            switch (noOfVertices) // line 3
             {
-                case 0:
-                    figureName = "Non-existent figure. Zero vertices.";
-                    break;
-                case 1:
-                    figureName = "Single point";
-                    break;
-                case 2:
-                    figureName = "Line";
-                    break;
-                case 3:
-                    figureName = "Triangle ";
-                    Triangle triangle = new Triangle(vertices[0], vertices[1], vertices[2]);
+                case 0: // line 4
+                    figureName = "Non-existent figure. Zero vertices."; // line 5
+                    break; // line 6
+                case 1: // line 7
+                    figureName = "Single point"; // line 8
+                    break; // line 9
+                case 2: // line 10
+                    figureName = "Line"; // line 11
+                    break; // line 12
+                case 3: // line 13
+                    figureName = "Triangle "; // line 14
+                    Triangle triangle = new Triangle(vertices[0], vertices[1], vertices[2]); // line 15
 
                     // Determine the exact triangle type
-                    if (triangle.IsEquilateral())
+                    if (triangle.IsEquilateral()) // line 16
                     {
-                        figureName += "equilateral";
+                        figureName += "equilateral"; // line 17
                     }
-                    else if (triangle.IsIsosceles())
+                    else if (triangle.IsIsosceles()) // line 18
                     {
-                        figureName += "isosceles";
+                        figureName += "isosceles"; // line 19
                     }
-                    else
+                    else // line 20
                     {
-                        figureName += "scalene";
-                    }
-
-                    if (triangle.IsRightAngled())
-                    {
-                        figureName += " right-angled";
-                    }
-                    else if (triangle.IsObtuse())
-                    {
-                        figureName += " obtuse";
+                        figureName += "scalene"; // line 21
                     }
 
-                    break;
-                case 4:
-                    figureName = "Quadrilateral";
-                    Quadrilateral quadrilateral = new Quadrilateral(vertices[0], vertices[1], vertices[2], vertices[3]);
+                    if (triangle.IsRightAngled()) // line 22
+                    {
+                        figureName += " right-angled"; // line 23
+                    }
+                    else if (triangle.IsObtuse()) // line 24
+                    {
+                        figureName += " obtuse"; // line 25
+                    }
+
+                    break; // line 26
+                case 4: // line 27
+                    figureName = "Quadrilateral"; // line 28
+                    Quadrilateral quadrilateral = new Quadrilateral(vertices[0], vertices[1], vertices[2], vertices[3]); // line 29
 
                     // Determine the exact quadrilateral type
-                    if (quadrilateral.IsTrapezoid())
+                    if (quadrilateral.IsTrapezoid()) // line 30
                     {
-                        figureName = "Trapezoid";
+                        figureName = "Trapezoid"; // line 31
                     }
-                    else if (quadrilateral.IsParallelogram())
+                    else if (quadrilateral.IsParallelogram()) // line 32
                     {
-                        figureName = "Parallelogram";
-                        
-                        if (quadrilateral.IsRectangle())
-                        {
-                            figureName = "Rectangle";
+                        figureName = "Parallelogram"; // line 33
 
-                            if (quadrilateral.IsSquare())
+                        if (quadrilateral.IsRectangle()) // line 34
+                        {
+                            figureName = "Rectangle"; // line 35
+
+                            if (quadrilateral.IsSquare()) // line 36
                             {
-                                figureName = "Square";
+                                figureName = "Square"; // line 37
                             }
                         }
-                        else if (quadrilateral.IsRhombus())
+                        else if (quadrilateral.IsRhombus()) // line 38
                         {
-                            figureName = "Rhombus";
+                            figureName = "Rhombus"; // line 39
                         }
                     }
 
-                    break;
-                default:
-                    figureName = "Unknown figure with " + noOfVertices.ToString() + " vertices";
-                    break;
+                    break; // line 40
+                default: //41
+                    figureName = "Unknown figure with " + noOfVertices.ToString() + " vertices"; // line 42
+                    break; // line 43
             }
         }
 
