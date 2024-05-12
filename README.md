@@ -164,6 +164,8 @@ Am facut CFG-ul asociat unei functii care determina tipul figurii geometrice con
 
 Mutanti
 -------
+Raportul initial: [raport](/StrykerOutput/raport1.png)
+
 
 
 

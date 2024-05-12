@@ -59,7 +59,12 @@ namespace Compute
                 c.SetX(c.GetX() / 8.0);
                 c.SetY(c.GetY() / 8.0);
                 c.SetZ(c.GetZ() / 8.0);
+                if (center == null)
+                {
+                    return center;
+                }
                 center.Copy(c);
+                return center;
             }
             return center; 
         }

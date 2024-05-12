@@ -60,7 +60,36 @@ namespace Compute
             Assert.That(c.GetVertices(), Is.Not.Null);
             Assert.That(c.GetBoundingBox().HasValue, Is.True);
             Assert.That(c.GetEdgeLength(), Is.EqualTo(2.0));
+
+            //Point? cen = c.GetCenter();
+
+            //if (cen != null)
+            //{
+            //    Assert.That(cen, Is.EqualTo(new Point(1, 1, 2)));
+            //}
         }
+
+        [Test]
+        public void CubeCreationCenter()
+        {
+            Point center = new Point(0, 0, 0);
+            Cube c = new Cube(center, 2);
+
+            Assert.That(c.GetVertices().Count, Is.EqualTo(8));
+            Assert.That(c.GetVertices()[0], Is.EqualTo(new Point(-1, 1, -1)));
+            Assert.That(c.GetVertices()[2], Is.EqualTo(new Point(1, 1, -1))); 
+            Assert.That(c.GetVertices()[4], Is.EqualTo(new Point(1, -1, -1)));
+            Assert.That(c.GetVertices()[6], Is.EqualTo(new Point(-1, -1, -1)));
+            Assert.That(c.GetVertices()[1], Is.EqualTo(new Point(-1, 1, 1)));
+            Assert.That(c.GetVertices()[3], Is.EqualTo(new Point(1, 1, 1)));
+            Assert.That(c.GetVertices()[5], Is.EqualTo(new Point(1, -1, +1)));
+            Assert.That(c.GetVertices()[7], Is.EqualTo(new Point(-1, -1, +1)));
+
+
+
+            Assert.That(c.IsPointInsideBoundingBox(center), Is.True);
+        }
+
 
         
         public double ComputeDistance(Point a, Point b, DistType type = DistType.euclidean)
@@ -205,6 +234,96 @@ namespace Compute
             {
                 Assert.That(ComputeDistance(t.Item1, t.Item2, t.Item3), Is.EqualTo(t.Item4));
             } 
+        }
+
+
+
+        [Test]
+        public void MiscTests()
+        {
+            Point a = new Point(1, 1, 1);
+            a.SetX(3);
+            a.SetY(2);
+            a.SetZ(3);
+
+            Point d = new Point(3, 2, 3);
+            
+            Assert.That(a, Is.EqualTo(d));
+
+            Point b = new Point(1, 1, 1);
+
+            Assert.That(a + b == new Point(4, 3, 4), Is.True);
+            Assert.That(a != b, Is.True);
+            a.Copy(b);
+
+            Assert.That(a, Is.EqualTo(b));
+
+            
+        }
+
+        [Test]
+        public void TriangleTests()
+        {
+            Triangle t = new Triangle(new Point(1, 1, 1), new Point(2, 2, 2), new Point(3, 3, 3));
+            Triangle t2 = new Triangle(new Point(2, 4, 6), new Point(6, 0, 1), new Point(9, 2, 1));
+            Triangle t3 = new Triangle(new Point(0, 0, 0), new Point(3, 0, 0), new Point(0, 2, 0));
+
+            Assert.IsFalse(t.IsEquilateral());
+            Assert.IsTrue(t.IsIsosceles());
+            Assert.IsFalse(t.IsRightAngled());
+
+            Assert.IsTrue(t.IsObtuse());
+
+            Assert.IsFalse(t2.IsIsosceles());
+
+            Assert.IsFalse(t2.IsRightAngled());
+
+            Assert.IsTrue(t3.IsRightAngled());
+        
+        }
+
+        [Test]
+        public void QuadriTests()
+        {
+            Quadrilateral q = new Quadrilateral(new Point(1, 1, 1), new Point(2, 2, 2), new Point(3, 3, 3), new Point(4, 4, 4));
+
+            Quadrilateral q2 = new Quadrilateral(new Point(2, 2, 2), new Point(3, 3, 3), new Point(1, 1, 1), new Point(4, 4, 4));
+
+            Quadrilateral q3 = new Quadrilateral(new Point(1, 1, 4), new Point(4, 4, 4), new Point(6, 5, 4), new Point(3, 2, 4));
+
+            Quadrilateral q4 = new Quadrilateral(new Point(5, 9 ,0), new Point(1, 2, 6), new Point(2, 0, 9), new Point(3, 2, 6));
+
+            q2.CheckParallelSides();
+
+            q.CheckParallelSides();
+
+            q.CheckOppositeSidesEqual();
+
+            q3.CheckParallelSides();
+
+            q4.CheckParallelSides();
+            
+            q4.CheckOppositeSidesEqual();
+
+
+            Assert.IsFalse(q4.IsSquare());
+
+            Assert.IsFalse(q4.IsRectangle());
+
+            Assert.IsFalse(q2.IsParallelogram());
+
+            Assert.IsTrue(q.IsTrapezoid());
+
+            Assert.IsFalse(q.IsParallelogram());
+
+            Assert.IsFalse(q.AreAllAngles90Degrees());
+
+            Assert.IsFalse(q.IsRectangle());
+
+            Assert.IsFalse(q.IsSquare());
+
+            Assert.IsFalse(q.IsRhombus());
+
         }
 
     }
