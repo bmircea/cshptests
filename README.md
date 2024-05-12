@@ -16,6 +16,7 @@ Stryker
 
 Videoclip Youtube
 -----------------
+https://youtu.be/qnpsS8sYl0Y
 
 
 Testare functionala - partitionare
@@ -164,13 +165,17 @@ Am facut CFG-ul asociat unei functii care determina tipul figurii geometrice con
 
 Mutanti
 -------
-Raportul initial: [raport](/StrykerOutput/raport1.png)
+Raportul initial: [raport](/StrykerOutput/2024-05-12.19-12-36/reports/mutation-report.html)
+Raportul final: [raport](/StrykerOutput/2024-05-12.19-04-25/reports/mutation-report.html)
+Raport AI: [report](/StrykerOutput/2024-05-12.20-03-34/reports/mutation-report.html)
 
-
+Pentru detalii, urmariti videoclipul.
 
 
 Raport AI
 ---------
 Am folosit modelul de inteligenta artificiala Microsoft Copilot. Query-urile date si raspunsurile primite pot fi vazute in folderul intitulat Copilot, asociat proiectului.
 
-Dupa cum se poate observa si din videoclipul de pe YouTube, testele generate de AI au o eficienta crescuta/scazuta, comparativ cu testele scrise de catre noi, rata de acoperire fiind de ... (TODO)
+Dupa cum se poate observa, testele generate de AI au o eficienta sub medie. Scorul Stryker este de 9.7% acoperire, cu acoperire intre 20-25% pentru clasele Cube si Point.
+Testele ruleaza conform asteptarilor, iar probabil ca, generand mai multe teste diferite (nu doar pentru partitionare si boundary value analysis), scorul ar fi mai apropiat de scorul
+testelor scrise manual.
