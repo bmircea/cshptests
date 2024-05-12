@@ -3,10 +3,10 @@ using NUnit.Framework;
 
 namespace Compute
 {
-    
+
     public class Tests
     {
-        public enum DistType{ 
+        public enum DistType {
             euclidean,
             manhattan,
             chebysev
@@ -77,7 +77,7 @@ namespace Compute
 
             Assert.That(c.GetVertices().Count, Is.EqualTo(8));
             Assert.That(c.GetVertices()[0], Is.EqualTo(new Point(-1, 1, -1)));
-            Assert.That(c.GetVertices()[2], Is.EqualTo(new Point(1, 1, -1))); 
+            Assert.That(c.GetVertices()[2], Is.EqualTo(new Point(1, 1, -1)));
             Assert.That(c.GetVertices()[4], Is.EqualTo(new Point(1, -1, -1)));
             Assert.That(c.GetVertices()[6], Is.EqualTo(new Point(-1, -1, -1)));
             Assert.That(c.GetVertices()[1], Is.EqualTo(new Point(-1, 1, 1)));
@@ -91,7 +91,7 @@ namespace Compute
         }
 
 
-        
+
         public double ComputeDistance(Point a, Point b, DistType type = DistType.euclidean)
         {
             switch (type)
@@ -108,10 +108,11 @@ namespace Compute
         }
 
 
-        public bool IsPointInsideCubeBB(Point p, double tol, List<Point> vertexList, double?  length = null)
+        public bool IsPointInsideCubeBB(Point p, double tol, List<Point> vertexList, double? length = null)
         {
             Cube c;
-            try { 
+            try
+            {
                 if (vertexList.Count == 1)
                 {
                     if (length != null)
@@ -125,7 +126,8 @@ namespace Compute
                     c = new Cube(vertexList);
                 }
                 else throw new Exception("Invalid number of vertices");
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 return false;
@@ -138,7 +140,7 @@ namespace Compute
         {
             Point point1 = new Point(2, 3, 5);
             Point point2 = new Point(5, 3, 2);
-            double expectedResult = 2*5 + 3*3 + 5*2;
+            double expectedResult = 2 * 5 + 3 * 3 + 5 * 2;
 
             Assert.That(Utilities.DotProduct(point1, point2), Is.EqualTo(expectedResult));
         }
@@ -158,7 +160,7 @@ namespace Compute
                 (new Point(0, 0, 0), 0.0, [new(1, 5, 7), new(2, 2, 3), new(3, 4, 2)], null, false),
                 (new Point(0, 0, 1), 0.2, [new(-1, -1, 0), new(1, -1, 0), new(1, 1, 0), new(-1, 1, 0), new(-1, -1, 3), new(1, -1, 3), new(1, 1, 3), new(-1, 1, 3)], 2, true),
                 (new Point(10, 15, 11), 0.2, [new(-1, -1, 0), new(1, -1, 0), new(1, 1, 0), new(-1, 1, 0), new(-1, -1, 3), new(1, -1, 3), new(1, 1, 3), new(-1, 1, 3)], 2, false),
-                (new Point(0, 0, 0), 0.0, [new(-1, -1, 0), new(1, -1, 0), new(1, 1, 0), new(-1, 1, 0), new(-1, -1, 3), new(1, -1, 3), new(1, 1, 3), new(-1, 1, 3), new(2, 2, 2)], 0, false)   
+                (new Point(0, 0, 0), 0.0, [new(-1, -1, 0), new(1, -1, 0), new(1, 1, 0), new(-1, 1, 0), new(-1, -1, 3), new(1, -1, 3), new(1, 1, 3), new(-1, 1, 3), new(2, 2, 2)], 0, false)
             };
 
             foreach (var t in testBatch)
@@ -167,8 +169,8 @@ namespace Compute
                     Assert.That(IsPointInsideCubeBB(t.Item1, t.Item2, t.Item3, t.Item4), Is.True);
                 else
                     Assert.That(IsPointInsideCubeBB(t.Item1, t.Item2, t.Item3, t.Item4), Is.False);
-            } 
-                
+            }
+
         }
 
 
@@ -176,14 +178,14 @@ namespace Compute
         // Boundary value analysis
         [Test]
         public void BoundaryTestingBoundingBox()
-        { 
+        {
             var testBatch = new List<(Point, double, List<Point>, double?, bool)>
             {
                 (new Point(0, 0, 0), 0.0, [], null, false),
                 (new Point(1, 1, 1), 0.1, [new(1, 1, 1)], 2, true),
                 (new Point(0, 0, 0), 0.0, [new(-1, -1, 0), new(1, -1, 0), new(1, 1, 0), new(-1, 1, 0), new(-1, -1, 3)], null, false),
                 (new Point(0, 0, 1), 0.2, [new(-1, -1, 0), new(1, -1, 0), new(1, 1, 0), new(-1, 1, 0), new(-1, -1, 3), new(1, -1, 3), new(1, 1, 3), new(-1, 1, 3)], 2, true),
-                (new Point(0, 0, 0), 0.0, [new(-1, -1, 0), new(1, -1, 0), new(1, 1, 0), new(-1, 1, 0), new(-1, -1, 3), new(1, -1, 3), new(1, 1, 3), new(-1, 1, 3), new(5, 5, 5)], 0, false)   
+                (new Point(0, 0, 0), 0.0, [new(-1, -1, 0), new(1, -1, 0), new(1, 1, 0), new(-1, 1, 0), new(-1, -1, 3), new(1, -1, 3), new(1, 1, 3), new(-1, 1, 3), new(5, 5, 5)], 0, false)
             };
             foreach (var t in testBatch)
             {
@@ -191,7 +193,7 @@ namespace Compute
                     Assert.That(IsPointInsideCubeBB(t.Item1, t.Item2, t.Item3, t.Item4), Is.True);
                 else
                     Assert.That(IsPointInsideCubeBB(t.Item1, t.Item2, t.Item3, t.Item4), Is.False);
-            } 
+            }
         }
 
         // =============================================
@@ -211,15 +213,15 @@ namespace Compute
             foreach (var t in testBatch)
             {
                 Assert.That(ComputeDistance(t.Item1, t.Item2, t.Item3), Is.EqualTo(t.Item4));
-            } 
-                
+            }
+
         }
 
         // ============================================
         // Boundary value analysis
         [Test]
         public void BoundaryTestingDistance()
-        { 
+        {
             var testBatch = new List<(Point, Point, DistType, double)>
             {
                 (new Point(2, 2, 2), new Point(2, 2, 2), DistType.euclidean, 0),
@@ -228,12 +230,12 @@ namespace Compute
                 (new Point(0, 0.001, 0), new Point(0.0001, 0, 0), DistType.euclidean, Math.Sqrt(Math.Pow(10, -6) + Math.Pow(10, -8))),
                 (new Point(0, 0.0001, 0), new Point(0.00001, 0, 0), DistType.manhattan, 0.00011),
                 (new Point(0, 0.00001, 0), new Point(0.000001, 0, 0), DistType.chebysev, 0.00001),
-                 
+
             };
             foreach (var t in testBatch)
             {
                 Assert.That(ComputeDistance(t.Item1, t.Item2, t.Item3), Is.EqualTo(t.Item4));
-            } 
+            }
         }
 
 
@@ -247,7 +249,7 @@ namespace Compute
             a.SetZ(3);
 
             Point d = new Point(3, 2, 3);
-            
+
             Assert.That(a, Is.EqualTo(d));
 
             Point b = new Point(1, 1, 1);
@@ -258,7 +260,7 @@ namespace Compute
 
             Assert.That(a, Is.EqualTo(b));
 
-            
+
         }
 
         [Test]
@@ -279,10 +281,10 @@ namespace Compute
             Assert.IsFalse(t2.IsRightAngled());
 
             Assert.IsTrue(t3.IsRightAngled());
-        
+
         }
 
-        [Test]
+        [Test, Category("Normal")]
         public void QuadriTests()
         {
             Quadrilateral q = new Quadrilateral(new Point(1, 1, 1), new Point(2, 2, 2), new Point(3, 3, 3), new Point(4, 4, 4));
@@ -291,7 +293,7 @@ namespace Compute
 
             Quadrilateral q3 = new Quadrilateral(new Point(1, 1, 4), new Point(4, 4, 4), new Point(6, 5, 4), new Point(3, 2, 4));
 
-            Quadrilateral q4 = new Quadrilateral(new Point(5, 9 ,0), new Point(1, 2, 6), new Point(2, 0, 9), new Point(3, 2, 6));
+            Quadrilateral q4 = new Quadrilateral(new Point(5, 9, 0), new Point(1, 2, 6), new Point(2, 0, 9), new Point(3, 2, 6));
 
             q2.CheckParallelSides();
 
@@ -302,7 +304,7 @@ namespace Compute
             q3.CheckParallelSides();
 
             q4.CheckParallelSides();
-            
+
             q4.CheckOppositeSidesEqual();
 
 
@@ -324,6 +326,68 @@ namespace Compute
 
             Assert.IsFalse(q.IsRhombus());
 
+        }
+
+        private Cube cube;
+
+        //[SetUp]
+        //public void Setup()
+        //{
+        //    cube = new Cube(new Point(0, 0, 0), 2);
+        //}
+
+        // Test for equivalence class 1: Points that are calculated using the Euclidean distance
+        [Test, Category("AI")]
+        public void ComputeDistance_Euclidean_ReturnsCorrectDistance()
+        {
+            var pointA = new Point(0, 0, 0);
+            var pointB = new Point(1, 1, 1);
+            var expectedDistance = Math.Sqrt(3);
+            Assert.AreEqual(expectedDistance, ComputeDistance(pointA, pointB, DistType.euclidean));
+        }
+
+        // Test for equivalence class 2: Points that are calculated using the Manhattan distance
+        [Test, Category("AI")]
+        public void ComputeDistance_Manhattan_ReturnsCorrectDistance()
+        {
+            var pointA = new Point(0, 0, 0);
+            var pointB = new Point(1, 1, 1);
+            var expectedDistance = 3;
+            Assert.AreEqual(expectedDistance, ComputeDistance(pointA, pointB, DistType.manhattan));
+        }
+
+        // Test for equivalence class 3: Points that are calculated using the Chebyshev distance
+        [Test, Category("AI")]
+        public void ComputeDistance_Chebyshev_ReturnsCorrectDistance()
+        {
+            var pointA = new Point(0, 0, 0);
+            var pointB = new Point(1, 1, 1);
+            var expectedDistance = 1;
+            Assert.AreEqual(expectedDistance, ComputeDistance(pointA, pointB, DistType.chebysev));
+        }
+
+        // Test for equivalence class 1: Points that are inside the bounding box
+        [Test, Category("AI")]
+        public void IsPointInsideBoundingBox_Inside_ReturnsTrue()
+        {
+            var point = new Point(0.5, 0.5, 0.5);
+            Assert.IsTrue(cube.IsPointInsideBoundingBox(point));
+        }
+
+        // Test for equivalence class 2: Points that are outside the bounding box
+        [Test, Category("AI")]
+        public void IsPointInsideBoundingBox_Outside_ReturnsFalse()
+        {
+            var point = new Point(2.5, 2.5, 2.5);
+            Assert.IsFalse(cube.IsPointInsideBoundingBox(point));
+        }
+
+        // Test for equivalence class 3: Points that are exactly on the boundary of the bounding box
+        [Test, Category("AI")]
+        public void IsPointInsideBoundingBox_OnBoundary_ReturnsTrue()
+        {
+            var point = new Point(1, 1, 1);
+            Assert.IsTrue(cube.IsPointInsideBoundingBox(point));
         }
 
     }
